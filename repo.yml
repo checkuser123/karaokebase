@@ -1,1 +1,93 @@
-
+name: justin.omez.tech
+description: 'The greatest karaoke database ever'
+homeURL: https://justin.omez.tech,
+contentsURL: https://justin.omez.tech/downloads/master.zip
+gitURL: https://github.com/checkuser123/karaokebase/
+projectID: 32123952
+rules:
+  karaFile:
+      maxParents: 2
+      maxParentDepth: 1
+      forbiddenParentTags:
+        - c0cc87b9-55b9-40f0-878a-fbb9e34c151e
+      requireLatinTitle: true
+      requireLatinTitleAsDefault: true
+  videoFile:
+    containers:
+      mandatory: true
+      allowed:
+        - mp4
+        - mkv
+        - webm
+      default: mp4
+    resolution:
+      min:
+        height: 720
+        width: 1280
+        mandatory: false
+      max:
+        height: 1080
+        width: 1920
+        mandatory: true
+    codecs:
+      video:
+        mandatory: false
+        allowed:
+          - h264
+          - hevc
+          - vp9
+          - av1
+        default: hevc
+      audio:
+        mandatory: true
+        allowed:
+          - aac
+          - vorbis
+          - opus
+          - mp3
+        default: opus
+    bitrate:
+      max: 8000
+    colorSpace:
+      allowed:
+        - yuv420p
+      default: yuv420p
+      mandatory: false
+  audioFile:
+    containers:
+      mandatory: true
+      allowed:
+        - mp3
+        - aac
+        - m4a
+        - ogg
+        - opus
+      default: mp3
+    codecs:
+      allowed:
+        - aac
+        - vorbis
+        - opus
+        - mp3
+      default: mp3
+      mandatory: true
+      bitrate:
+        min: 128
+        max: 512
+        mandatory: true
+    coverArt:
+      mandatory: true
+  lyrics:
+    formats:
+      - name: kfn
+      - name: txt
+      - name: kar
+      - name: kbp
+      - name: ass
+        removeGarbage: true
+        removeHeaderComments: true
+        removeUnusedStyles: true
+        removeUnusedFonts: true
+        setTitle: true
+        setOriginalTiming: true
+        set0x0Resolution: true
